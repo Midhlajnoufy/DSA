@@ -3,6 +3,7 @@
 //function prototypes
 void enqueue(int *arr,int *size,int *fptr,int *rptr,int n);
 int dequeue(int *arr,int *size,int *fptr,int *rptr);
+void view(int *arr,int *size,int *fptr,int *rptr);
 //main function
 int main(){
     int size;
@@ -16,7 +17,7 @@ int main(){
     int queue[size];
     int *max=&size;
     do{
-        printf("\nchoose from the below options \n 1.Enqueue \n 2.Dequeue \n 3.clear \n 4.exit \n   Enter the choice: ");
+        printf("\n\n\nchoose from the below options \n 1.Enqueue \n 2.Dequeue \n 3.clear \n 4.exit \n 5.view \n  Enter the choice: ");
         scanf("%d",&choice);
         switch(choice){
             case 1:
@@ -34,6 +35,9 @@ int main(){
             break;
             case 4:
             exit(0);
+            case 5:
+            view(queue,max,fptr,rptr);
+            break;
             default:
             printf("enter a valid choice from [1,2,3,4]");
 
@@ -67,5 +71,16 @@ int dequeue(int *arr,int *size,int *fptr,int *rptr){
     }else{
         printf("queue underflow");
         return -1;
+    }
+}
+//view function
+void view(int *arr,int *size,int *fptr,int *rptr){
+    if(*rptr!=-1){
+        printf("the queue is : \n");
+        for(int i=*fptr;i<=*rptr;i++){
+            printf("arr[%d]=%d",i,arr[i]);
+        }
+    }else{
+        printf("the queue is empty");
     }
 }
