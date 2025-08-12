@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define SIZE 10
+#define SIZE 4
 int top=-1;
 int stack[SIZE];
 //peep function

@@ -34,11 +34,8 @@ void display(int lst[],int n){
         printf("the queue is empty\n");
     }
     else{
-        while(1){
+        while(i!=j){
             printf("%d ",lst[i]);
-            if(i==j){
-                break;
-            }
             i=(i+1)%n;
         }
         printf("\n");
@@ -48,16 +45,17 @@ int main(){
     int n;
     printf("enter the length of queue");
     scanf("%d",&n);
+    n++;
     int lst[n];
     int choice,num,k;
-    while(1){
+    while(choice!=4){
         printf("enter your choice\n 1.enqueue\n 2.dequeue\n 3.display\n 4.exit\n ");
         scanf("%d",&choice);
         switch(choice){
             case 1:
             printf("enter the value to enqueue");
             scanf("%d",&num);
-            enqueue(num,lst,n);
+            enqueue(num,lst,n-1);
             break;
             case 2:
             k=dequeue(lst,n);
